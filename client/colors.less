@@ -1,0 +1,67 @@
+// All other colors will be derived from this one
+@primary: lime;
+//derived
+@complementary: spin(@primary, 180);
+@triadic-secondary: spin(@primary, 120);
+@triadic-tertiary: spin(@primary, 240);
+@brother: spin(@primary, 30);
+@sister: spin(@primary, 330);
+@father: spin(@primary, 60);
+@mother: spin(@primary, 300);
+@right: spin(@primary, 90);
+@left: spin(@primary, 270);
+
+// context
+@warning: @left;
+@danger: @right;
+@disabled: #555;
+
+@info: @father;
+@success: @mother;
+@hover: @brother;
+@active: @sister;
+
+@bg:  darken(@complementary, 40%);
+@bg1: darken(@triadic-secondary, 40%);
+@bg2: darken(@triadic-tertiary, 40%);
+@bg3:  darken(@complementary, 20%);
+
+body {
+	height: auto;
+	background-color: @bg;
+	background-image: linear-gradient(to bottom, @bg, @bg1 100%);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+.page.lists-show .content-scrollable {
+	background: @bg;
+}
+.list-items .list-item.checked input[type="text"] {
+	color: @mother;
+}
+
+.page.lists-show nav {
+	background: linear-gradient(to bottom, @bg1, @bg 100%);
+}
+nav .nav-item,
+.page.lists-show nav .title-page .title-wrapper,
+input[type="text"], input[type="email"], input[type="password"], textarea {
+	color: @primary;
+}
+#menu .list-todos .list-todo {
+	color: rgba(55, 255, 55, 0.7);
+}
+a {
+	color: @sister;
+}
+.page.lists-show nav .title-page .count-list,
+#menu .list-todos .list-todo:hover .count-list, #menu .list-todos .list-todo:active .count-list, #menu .list-todos .list-todo.active .count-list {
+	background: @bg3;
+	color: @primary;
+}
+#menu .list-todos .list-todo:hover, #menu .list-todos .list-todo:active, #menu .list-todos .list-todo.active {
+	color: @brother;
+}
+.list-items .list-item + .list-item {
+	border-top: 1px solid @primary;
+}
